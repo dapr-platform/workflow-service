@@ -1,0 +1,282 @@
+{
+  "nodes": [
+    {
+      "id": "742356ea-762b-4899-b96a-bd567e3c4361",
+      "type": "StartEvent",
+      "x": 278,
+      "y": 170,
+      "properties": {
+        "type": "system_event",
+        "name": "开始事件",
+        "pubsub": "pubsub",
+        "topic": "material",
+        "filter_expr": "status==2"
+      },
+      "text": {
+        "x": 278,
+        "y": 205,
+        "value": "开始事件"
+      }
+    },
+    {
+      "id": "4835334d-b6d6-4717-856c-efaccfd97517",
+      "type": "ServiceTask",
+      "x": 470,
+      "y": 170,
+      "properties": {
+        "service_name": "db-service",
+        "method": "get",
+        "url": "/databases",
+        "body_param": "",
+        "success_expr": "",
+        "data_tmpl": "{\"list\":{{tojson .}}}"
+      }
+    },
+    {
+      "id": "c36b7805-9f41-4b2f-b00c-f9e2de429c58",
+      "type": "ExclusiveGateway",
+      "x": 660,
+      "y": 170,
+      "properties": {
+        "text": "",
+        "name": "gateway1",
+        "region": "",
+        "type": ""
+        }
+
+    },
+    {
+      "id": "2232e7e1-024e-4866-bb73-ac0c700d4d92",
+      "type": "ServiceTask",
+      "x": 856,
+      "y": 170,
+      "properties": {
+        "service_name": "db-service",
+        "method": "get",
+        "url": "/databases",
+        "body_param": "",
+        "success_expr": "",
+        "data_tmpl": "{\"list\":{{tojson .}}}"
+      }
+    },
+    {
+      "id": "ad73dea3-1b32-498a-b9c3-ad3a82059c10",
+      "type": "EndEvent",
+      "x": 1080,
+      "y": 170,
+      "properties": {
+      }
+    },
+    {
+      "id": "1bca7af2-bcf2-4a19-9e23-cddd3e08f421",
+      "type": "ServiceTask",
+      "x": 660,
+      "y": 340,
+      "properties": {
+        "service_name": "db-service",
+        "method": "get",
+        "url": "/databases",
+        "body_param": "",
+        "success_expr": "",
+        "data_tmpl": "{\"list\":{{tojson .}}}"
+      }
+    },
+    {
+      "id": "6f2b87ca-cf1b-4a9d-9f7f-1a48ba75ed52",
+      "type": "EndEvent",
+      "x": 860,
+      "y": 340,
+      "properties": {
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "fa986540-e33a-4a13-9d5d-6baaa33b7321",
+      "type": "polyline",
+      "sourceNodeId": "742356ea-762b-4899-b96a-bd567e3c4361",
+      "targetNodeId": "4835334d-b6d6-4717-856c-efaccfd97517",
+      "startPoint": {
+        "x": 298,
+        "y": 170
+      },
+      "endPoint": {
+        "x": 435,
+        "y": 170
+      },
+      "properties": {
+        "text": "",
+        "name": "line1",
+        "region": "",
+        "type": "",
+        "a":""
+      },
+      "pointsList": [
+        {
+          "x": 298,
+          "y": 170
+        },
+        {
+          "x": 435,
+          "y": 170
+        }
+      ]
+    },
+    {
+      "id": "b23f69fa-bd37-4e9c-a389-58d2cb8ceaea",
+      "type": "polyline",
+      "sourceNodeId": "4835334d-b6d6-4717-856c-efaccfd97517",
+      "targetNodeId": "c36b7805-9f41-4b2f-b00c-f9e2de429c58",
+      "startPoint": {
+        "x": 505,
+        "y": 170
+      },
+      "endPoint": {
+        "x": 625,
+        "y": 170
+      },
+      "properties": {
+        "text": "",
+        "name": "line2",
+        "region": "",
+        "type": ""
+      },
+      "pointsList": [
+        {
+          "x": 505,
+          "y": 170
+        },
+        {
+          "x": 625,
+          "y": 170
+        }
+      ]
+    },
+    {
+      "id": "9d3cf275-3221-4cd6-93d5-b9893722fc00",
+      "type": "polyline",
+      "sourceNodeId": "c36b7805-9f41-4b2f-b00c-f9e2de429c58",
+      "targetNodeId": "2232e7e1-024e-4866-bb73-ac0c700d4d92",
+      "startPoint": {
+        "x": 695,
+        "y": 170
+      },
+      "endPoint": {
+        "x": 821,
+        "y": 170
+      },
+      "properties": {
+        "text": "",
+        "expr": "datname==\"IDMPDB\"",
+        "name": "line3",
+        "region": "",
+        "type": "",
+        "a":""
+      },
+      "pointsList": [
+        {
+          "x": 695,
+          "y": 170
+        },
+        {
+          "x": 821,
+          "y": 170
+        }
+      ]
+    },
+    {
+      "id": "27e65820-7cc9-4874-a555-e67451bf648f",
+      "type": "polyline",
+      "sourceNodeId": "2232e7e1-024e-4866-bb73-ac0c700d4d92",
+      "targetNodeId": "ad73dea3-1b32-498a-b9c3-ad3a82059c10",
+      "startPoint": {
+        "x": 891,
+        "y": 170
+      },
+      "endPoint": {
+        "x": 1060,
+        "y": 170
+      },
+      "properties": {
+        "text": "",
+        "name": "line4",
+        "region": "",
+        "type": "",
+        "a":""
+      },
+      "pointsList": [
+        {
+          "x": 891,
+          "y": 170
+        },
+        {
+          "x": 1060,
+          "y": 170
+        }
+      ]
+    },
+    {
+      "id": "06ee3b18-7b16-4d50-913e-ba7ee43c3e53",
+      "type": "polyline",
+      "sourceNodeId": "c36b7805-9f41-4b2f-b00c-f9e2de429c58",
+      "targetNodeId": "1bca7af2-bcf2-4a19-9e23-cddd3e08f421",
+      "startPoint": {
+        "x": 660,
+        "y": 205
+      },
+      "endPoint": {
+        "x": 660,
+        "y": 305
+      },
+      "properties": {
+        "text": "",
+        "expr": "datname==\"k3sdb\"",
+        "name": "line5",
+        "region": "",
+        "type": "",
+        "a":""
+      },
+      "pointsList": [
+        {
+          "x": 660,
+          "y": 205
+        },
+        {
+          "x": 660,
+          "y": 305
+        }
+      ]
+    },
+    {
+      "id": "f9f1e0a4-6c33-46ff-aa02-f3142ffeba1a",
+      "type": "polyline",
+      "sourceNodeId": "1bca7af2-bcf2-4a19-9e23-cddd3e08f421",
+      "targetNodeId": "6f2b87ca-cf1b-4a9d-9f7f-1a48ba75ed52",
+      "startPoint": {
+        "x": 695,
+        "y": 340
+      },
+      "endPoint": {
+        "x": 840,
+        "y": 340
+      },
+      "properties": {
+        "text": "",
+        "name": "line6",
+        "region": "",
+        "type": "",
+        "a":""
+      },
+      "pointsList": [
+        {
+          "x": 695,
+          "y": 340
+        },
+        {
+          "x": 840,
+          "y": 340
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:bioc="http://bpmn.io/schema/bpmn/biocolor/1.0" xmlns:flowable="http://flowable.org/bpmn" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:hyz="http://www.hyz.org/hyz" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.flowable.org/processdef">
+    <process id="process_start_10ea2a95" name="name_start_a31d447b">
+        <extensionElements>
+            <flowable:executionListener class="com.bip.workflow.listener.ProcessEndListener" event="end" />
+        </extensionElements>
+        <startEvent id="startNode1" name="开始">
+            <extensionElements>
+                <flowable:executionListener class="com.bip.workflow.listener.NodeStartListener" event="start" />
+                <flowable:executionListener class="com.bip.workflow.listener.NodeEndListener" event="end" />
+            </extensionElements>
+            <outgoing>Flow_17tx244</outgoing>
+        </startEvent>
+        <sequenceFlow id="Flow_17tx244" sourceRef="startNode1" targetRef="Activity_0c0hmtg">
+            <extensionElements>
+                <flowable:executionListener class="com.bip.workflow.listener.NodeStartListener" event="start" />
+                <flowable:executionListener class="com.bip.workflow.listener.NodeEndListener" event="end" />
+            </extensionElements>
+        </sequenceFlow>
+        <userTask id="Activity_0c0hmtg" name="客服审核" flowable:assignee="${assignee}">
+            <extensionElements>
+                <flowable:executionListener class="com.bip.workflow.listener.NodeStartListener" event="start" />
+                <flowable:executionListener class="com.bip.workflow.listener.NodeEndListener" event="end" />
+                <flowable:taskListener class="com.bip.workflow.listener.UserTaskCreatListener" event="create" />
+                <flowable:taskListener class="com.bip.workflow.listener.UserTaskAssignmentListener" event="assignment" />
+                <flowable:taskListener class="com.bip.workflow.listener.UserTaskCompleteListener" event="complete" />
+            </extensionElements>
+            <incoming>Flow_17tx244</incoming>
+            <outgoing>Flow_1dgxnnh</outgoing>
+            <multiInstanceLoopCharacteristics flowable:collection="assigneeList" flowable:elementVariable="assignee" />
+        </userTask>
+        <exclusiveGateway id="Gateway_09xt4d6" name="是否审核通过">
+            <extensionElements>
+                <flowable:executionListener class="com.bip.workflow.listener.NodeStartListener" event="start" />
+                <flowable:executionListener class="com.bip.workflow.listener.NodeEndListener" event="end" />
+            </extensionElements>
+            <incoming>Flow_1dgxnnh</incoming>
+            <outgoing>Flow_1xv7m8t</outgoing>
+            <outgoing>Flow_0k75amw</outgoing>
+        </exclusiveGateway>
+        <sequenceFlow id="Flow_1dgxnnh" sourceRef="Activity_0c0hmtg" targetRef="Gateway_09xt4d6">
+            <extensionElements>
+                <flowable:executionListener class="com.bip.workflow.listener.NodeStartListener" event="start" />
+                <flowable:executionListener class="com.bip.workflow.listener.NodeEndListener" event="end" />
+            </extensionElements>
+            <conditionExpression xsi:type="tFormalExpression" />
+        </sequenceFlow>
+        <userTask id="Activity_0u5z8me" name="现场勘察">
+            <extensionElements>
+                <flowable:executionListener class="com.bip.workflow.listener.NodeStartListener" event="start" />
+                <flowable:executionListener class="com.bip.workflow.listener.NodeEndListener" event="end" />
+                <flowable:taskListener class="com.bip.workflow.listener.UserTaskCreatListener" event="create" />
+                <flowable:taskListener class="com.bip.workflow.listener.UserTaskAssignmentListener" event="assignment" />
+                <flowable:taskListener class="com.bip.workflow.listener.UserTaskCompleteListener" event="complete" />
+            </extensionElements>
+            <incoming>Flow_1xv7m8t</incoming>
+            <outgoing>Flow_0epfvh3</outgoing>
+        </userTask>
+        <exclusiveGateway id="Gateway_1o9h165" name="是否收费">
+            <extensionElements>
+                <flowable:executionListener class="com.bip.workflow.listener.NodeStartListener" event="start" />
+                <flowable:executionListener class="com.bip.workflow.listener.NodeEndListener" event="end" />
+            </extensionElements>
+            <incoming>Flow_0epfvh3</incoming>
+            <outgoing>Flow_08m0l76</outgoing>
+            <outgoing>Flow_0wwn9h2</outgoing>
+        </exclusiveGateway>
+        <userTask id="Activity_0o0rt9p" name="维修确认" flowable:assignee="${assignee}">
+            <extensionElements>
+                <flowable:executionListener class="com.bip.workflow.listener.NodeStartListener" event="start" />
+                <flowable:executionListener class="com.bip.workflow.listener.NodeEndListener" event="end" />
+                <flowable:taskListener class="com.bip.workflow.listener.UserTaskCreatListener" event="create" />
+                <flowable:taskListener class="com.bip.workflow.listener.UserTaskAssignmentListener" event="assignment" />
+                <flowable:taskListener class="com.bip.workflow.listener.UserTaskCompleteListener" event="complete" />
+            </extensionElements>
+            <incoming>Flow_08m0l76</incoming>
+            <outgoing>Flow_02cdwyk</outgoing>
+            <multiInstanceLoopCharacteristics flowable:collection="assigneeList" flowable:elementVariable="assignee" />
+        </userTask>
+        <exclusiveGateway id="Gateway_0epncvh" name="是否维修">
+            <extensionElements>
+                <flowable:executionListener class="com.bip.workflow.listener.NodeStartListener" event="start" />
+                <flowable:executionListener class="com.bip.workflow.listener.NodeEndListener" event="end" />
+            </extensionElements>
+            <incoming>Flow_02cdwyk</incoming>
+            <outgoing>Flow_01e1wa8</outgoing>
+            <outgoing>Flow_0avz1cf</outgoing>
+        </exclusiveGateway>
+        <userTask id="Activity_1f6wck5" name="进行维修" flowable:assignee="${assignee}">
+            <extensionElements>
+                <flowable:executionListener class="com.bip.workflow.listener.NodeStartListener" event="start" />
+                <flowable:executionListener class="com.bip.workflow.listener.NodeEndListener" event="end" />
+                <flowable:taskListener class="com.bip.workflow.listener.UserTaskCreatListener" event="create" />
+                <flowable:taskListener class="com.bip.workflow.listener.UserTaskAssignmentListener" event="assignment" />
+                <flowable:taskListener class="com.bip.workflow.listener.UserTaskCompleteListener" event="complete" />
+            </extensionElements>
+            <incoming>Flow_01e1wa8</incoming>
+            <incoming>Flow_0wwn9h2</incoming>
+            <outgoing>Flow_00wdhng</outgoing>
+            <multiInstanceLoopCharacteristics flowable:collection="assigneeList" flowable:elementVariable="assignee" />
+        </userTask>
+        <endEvent id="Event_0pkrnh8">
+            <extensionElements>
+                <flowable:executionListener class="com.bip.workflow.listener.NodeStartListener" event="start" />
+                <flowable:executionListener class="com.bip.workflow.listener.NodeEndListener" event="end" />
+            </extensionElements>
+            <incoming>Flow_00wdhng</incoming>
+            <incoming>Flow_0avz1cf</incoming>
+            <incoming>Flow_0k75amw</incoming>
+        </endEvent>
+        <sequenceFlow id="Flow_1xv7m8t" name="是" sourceRef="Gateway_09xt4d6" targetRef="Activity_0u5z8me">
+            <extensionElements>
+                <flowable:executionListener class="com.bip.workflow.listener.NodeStartListener" event="start" />
+                <flowable:executionListener class="com.bip.workflow.listener.NodeEndListener" event="end" />
+            </extensionElements>
+            <conditionExpression xsi:type="tFormalExpression">${Activity_0c0hmtgActionType == 1}</conditionExpression>
+        </sequenceFlow>
+        <sequenceFlow id="Flow_0epfvh3" sourceRef="Activity_0u5z8me" targetRef="Gateway_1o9h165">
+            <extensionElements>
+                <flowable:executionListener class="com.bip.workflow.listener.NodeStartListener" event="start" />
+                <flowable:executionListener class="com.bip.workflow.listener.NodeEndListener" event="end" />
+            </extensionElements>
+        </sequenceFlow>
+        <sequenceFlow id="Flow_08m0l76" name="是" sourceRef="Gateway_1o9h165" targetRef="Activity_0o0rt9p">
+            <extensionElements>
+                <flowable:executionListener class="com.bip.workflow.listener.NodeStartListener" event="start" />
+                <flowable:executionListener class="com.bip.workflow.listener.NodeEndListener" event="end" />
+            </extensionElements>
+            <conditionExpression xsi:type="tFormalExpression">${mainAttr.total_price !="0"}</conditionExpression>
+        </sequenceFlow>
+        <sequenceFlow id="Flow_02cdwyk" sourceRef="Activity_0o0rt9p" targetRef="Gateway_0epncvh">
+            <extensionElements>
+                <flowable:executionListener class="com.bip.workflow.listener.NodeStartListener" event="start" />
+                <flowable:executionListener class="com.bip.workflow.listener.NodeEndListener" event="end" />
+            </extensionElements>
+        </sequenceFlow>
+        <sequenceFlow id="Flow_01e1wa8" name="是" sourceRef="Gateway_0epncvh" targetRef="Activity_1f6wck5">
+            <extensionElements>
+                <flowable:executionListener class="com.bip.workflow.listener.NodeStartListener" event="start" />
+                <flowable:executionListener class="com.bip.workflow.listener.NodeEndListener" event="end" />
+            </extensionElements>
+            <conditionExpression xsi:type="tFormalExpression">${order_confirm_status_result =="确认维修"}</conditionExpression>
+        </sequenceFlow>
+        <sequenceFlow id="Flow_00wdhng" sourceRef="Activity_1f6wck5" targetRef="Event_0pkrnh8">
+            <extensionElements>
+                <flowable:executionListener class="com.bip.workflow.listener.NodeStartListener" event="start" />
+                <flowable:executionListener class="com.bip.workflow.listener.NodeEndListener" event="end" />
+            </extensionElements>
+        </sequenceFlow>
+        <sequenceFlow id="Flow_0wwn9h2" name="否" sourceRef="Gateway_1o9h165" targetRef="Activity_1f6wck5">
+            <extensionElements>
+                <flowable:executionListener class="com.bip.workflow.listener.NodeStartListener" event="start" />
+                <flowable:executionListener class="com.bip.workflow.listener.NodeEndListener" event="end" />
+            </extensionElements>
+            <conditionExpression xsi:type="tFormalExpression">${mainAttr.total_price =="0"}</conditionExpression>
+        </sequenceFlow>
+        <sequenceFlow id="Flow_0avz1cf" name="否" sourceRef="Gateway_0epncvh" targetRef="Event_0pkrnh8">
+            <extensionElements>
+                <flowable:executionListener class="com.bip.workflow.listener.NodeStartListener" event="start" />
+                <flowable:executionListener class="com.bip.workflow.listener.NodeEndListener" event="end" />
+            </extensionElements>
+            <conditionExpression xsi:type="tFormalExpression">${order_confirm_status_result =="取消维修"}</conditionExpression>
+        </sequenceFlow>
+        <sequenceFlow id="Flow_0k75amw" name="否" sourceRef="Gateway_09xt4d6" targetRef="Event_0pkrnh8">
+            <extensionElements>
+                <flowable:executionListener class="com.bip.workflow.listener.NodeStartListener" event="start" />
+                <flowable:executionListener class="com.bip.workflow.listener.NodeEndListener" event="end" />
+            </extensionElements>
+            <conditionExpression xsi:type="tFormalExpression">${Activity_0c0hmtgActionType == 0}</conditionExpression>
+        </sequenceFlow>
+    </process>
+    <bpmndi:BPMNDiagram id="BPMNDiagram_flow">
+        <bpmndi:BPMNPlane id="BPMNPlane_flow" bpmnElement="process_start_10ea2a95">
+            <bpmndi:BPMNEdge id="Flow_0k75amw_di" bpmnElement="Flow_0k75amw">
+                <di:waypoint x="460" y="325" />
+                <di:waypoint x="460" y="100" />
+                <di:waypoint x="1130" y="100" />
+                <di:waypoint x="1130" y="197" />
+                <bpmndi:BPMNLabel>
+                    <omgdc:Bounds x="790" y="82" width="11" height="14" />
+                </bpmndi:BPMNLabel>
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge id="Flow_0avz1cf_di" bpmnElement="Flow_0avz1cf">
+                <di:waypoint x="935" y="215" />
+                <di:waypoint x="1112" y="215" />
+                <bpmndi:BPMNLabel>
+                    <omgdc:Bounds x="1027" y="197" width="11" height="14" />
+                </bpmndi:BPMNLabel>
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge id="Flow_0wwn9h2_di" bpmnElement="Flow_0wwn9h2">
+                <di:waypoint x="695" y="560" />
+                <di:waypoint x="860" y="560" />
+                <bpmndi:BPMNLabel>
+                    <omgdc:Bounds x="772" y="542" width="11" height="14" />
+                </bpmndi:BPMNLabel>
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge id="Flow_00wdhng_di" bpmnElement="Flow_00wdhng">
+                <di:waypoint x="960" y="560" />
+                <di:waypoint x="1130" y="560" />
+                <di:waypoint x="1130" y="233" />
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge id="Flow_01e1wa8_di" bpmnElement="Flow_01e1wa8">
+                <di:waypoint x="910" y="240" />
+                <di:waypoint x="910" y="520" />
+                <bpmndi:BPMNLabel>
+                    <omgdc:Bounds x="920" y="377" width="11" height="14" />
+                </bpmndi:BPMNLabel>
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge id="Flow_02cdwyk_di" bpmnElement="Flow_02cdwyk">
+                <di:waypoint x="720" y="215" />
+                <di:waypoint x="885" y="215" />
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge id="Flow_08m0l76_di" bpmnElement="Flow_08m0l76">
+                <di:waypoint x="670" y="535" />
+                <di:waypoint x="670" y="255" />
+                <bpmndi:BPMNLabel>
+                    <omgdc:Bounds x="680" y="392" width="11" height="14" />
+                </bpmndi:BPMNLabel>
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge id="Flow_0epfvh3_di" bpmnElement="Flow_0epfvh3">
+                <di:waypoint x="510" y="560" />
+                <di:waypoint x="645" y="560" />
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge id="Flow_1xv7m8t_di" bpmnElement="Flow_1xv7m8t">
+                <di:waypoint x="460" y="375" />
+                <di:waypoint x="460" y="520" />
+                <bpmndi:BPMNLabel>
+                    <omgdc:Bounds x="470" y="445" width="11" height="14" />
+                </bpmndi:BPMNLabel>
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge id="Flow_1dgxnnh_di" bpmnElement="Flow_1dgxnnh">
+                <di:waypoint x="350" y="350" />
+                <di:waypoint x="435" y="350" />
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge id="Flow_17tx244_di" bpmnElement="Flow_17tx244">
+                <di:waypoint x="300" y="230" />
+                <di:waypoint x="300" y="310" />
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNShape id="BPMNShape_startNode1" bpmnElement="startNode1" bioc:stroke="">
+                <omgdc:Bounds x="285" y="200" width="30" height="30" />
+                <bpmndi:BPMNLabel>
+                    <omgdc:Bounds x="289" y="176" width="22" height="14" />
+                </bpmndi:BPMNLabel>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape id="Activity_0i3zi0n_di" bpmnElement="Activity_0c0hmtg">
+                <omgdc:Bounds x="250" y="310" width="100" height="80" />
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape id="Gateway_09xt4d6_di" bpmnElement="Gateway_09xt4d6" isMarkerVisible="true">
+                <omgdc:Bounds x="435" y="325" width="50" height="50" />
+                <bpmndi:BPMNLabel>
+                    <omgdc:Bounds x="495" y="343" width="66" height="14" />
+                </bpmndi:BPMNLabel>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape id="Activity_1mi91dy_di" bpmnElement="Activity_0u5z8me">
+                <omgdc:Bounds x="410" y="520" width="100" height="80" />
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape id="Gateway_1o9h165_di" bpmnElement="Gateway_1o9h165" isMarkerVisible="true">
+                <omgdc:Bounds x="645" y="535" width="50" height="50" />
+                <bpmndi:BPMNLabel>
+                    <omgdc:Bounds x="650" y="595" width="44" height="14" />
+                </bpmndi:BPMNLabel>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape id="Activity_19fjdov_di" bpmnElement="Activity_0o0rt9p">
+                <omgdc:Bounds x="620" y="175" width="100" height="80" />
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape id="Gateway_0epncvh_di" bpmnElement="Gateway_0epncvh" isMarkerVisible="true">
+                <omgdc:Bounds x="885" y="190" width="50" height="50" />
+                <bpmndi:BPMNLabel>
+                    <omgdc:Bounds x="888" y="166" width="44" height="14" />
+                </bpmndi:BPMNLabel>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape id="Activity_0aqe96g_di" bpmnElement="Activity_1f6wck5">
+                <omgdc:Bounds x="860" y="520" width="100" height="80" />
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape id="Event_0pkrnh8_di" bpmnElement="Event_0pkrnh8">
+                <omgdc:Bounds x="1112" y="197" width="36" height="36" />
+            </bpmndi:BPMNShape>
+        </bpmndi:BPMNPlane>
+    </bpmndi:BPMNDiagram>
+</definitions>

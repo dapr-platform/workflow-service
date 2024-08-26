@@ -1,0 +1,161 @@
+{
+  "cells": [
+    {
+      "shape": "edge",
+      "attrs": {
+        "line": {
+          "stroke": "#A555EC",
+          "targetMarker": {
+            "tagName": "path",
+            "d": "M 15 -5 0 0 15 5 Z",
+            "strokeWidth": 1,
+            "fill": "#A555EC",
+            "stroke": "#237804"
+          }
+        }
+      },
+      "id": "eaaad00f-b16e-4838-8431-68d5f6e2d587",
+      "zIndex": -1,
+      "source": {
+        "cell": "42842163-0630-4cdb-a612-e913d1ae8f30",
+        "port": "DeviceEventOrStateChange@output"
+      },
+      "target": {
+        "cell": "0b5df3ff-d191-46d6-a6c2-84880ebe4d19",
+        "port": "DeviceStateQuery@input"
+      }
+    },
+    {
+      "shape": "edge",
+      "attrs": {
+        "line": {
+          "stroke": "#A555EC",
+          "targetMarker": {
+            "tagName": "path",
+            "d": "M 15 -5 0 0 15 5 Z",
+            "strokeWidth": 1,
+            "fill": "#A555EC",
+            "stroke": "#237804"
+          }
+        }
+      },
+      "id": "9f0ff961-0641-42bd-85ff-7bfb9f4d5aad",
+      "zIndex": -1,
+      "source": {
+        "cell": "0b5df3ff-d191-46d6-a6c2-84880ebe4d19",
+        "port": "DeviceStateQuery@true"
+      },
+      "target": {
+        "cell": "b25c6b3b-4a66-4638-8e09-dd39eb017e62",
+        "port": "DeviceAction@input"
+      }
+    },
+    {
+      "position": {
+        "x": 110,
+        "y": 60
+      },
+      "size": {
+        "width": 400,
+        "height": 180
+      },
+      "shape": "DeviceEventOrStateChange",
+      "id": "42842163-0630-4cdb-a612-e913d1ae8f30",
+      "label": "事件发生或状态更新",
+      "data": {
+        "type": "DeviceEventOrStateChange",
+        "name": "事件发生或状态更新",
+        "devices": [
+          {
+            "id": "8f843d79cff85d83a1547f5c6a42f9af",
+            "name": "CMCC-MOTOR-1"
+          }
+        ],
+        "dataType": "device",
+        "product": "MjPLKu1nUUHlyvVoqSlWr",
+        "productName": "变频电机",
+        "meta_type": "properties",
+        "key": "RunningControl",
+        "value": "1"
+      },
+      "zIndex": 1
+    },
+    {
+      "position": {
+        "x": 590,
+        "y": 100
+      },
+      "size": {
+        "width": 560,
+        "height": 180
+      },
+      "shape": "DeviceStateQuery",
+      "id": "0b5df3ff-d191-46d6-a6c2-84880ebe4d19",
+      "label": "查询当前状态",
+      "data": {
+        "type": "DeviceStateQuery",
+        "name": "查询当前状态",
+        "devices": [
+          {
+            "id": "8f843d79cff85d83a1547f5c6a42f9af",
+            "name": "CMCC-MOTOR-1"
+          }
+        ],
+        "dataType": "device",
+        "product": "MjPLKu1nUUHlyvVoqSlWr",
+        "productName": "变频电机",
+        "meta_type": "properties",
+        "key": "SettingFreq",
+        "op": "noeq",
+        "value": "30"
+      },
+      "zIndex": 2
+    },
+    {
+      "position": {
+        "x": 370,
+        "y": 440
+      },
+      "size": {
+        "width": 450,
+        "height": 180
+      },
+      "shape": "DeviceAction",
+      "id": "b25c6b3b-4a66-4638-8e09-dd39eb017e62",
+      "label": "执行操作",
+      "data": {
+        "type": "DeviceAction",
+        "name": "执行操作",
+        "devices": [
+          {
+            "id": "8f843d79cff85d83a1547f5c6a42f9af",
+            "name": "CMCC-MOTOR-1"
+          }
+        ],
+        "dataType": "device",
+        "product": "MjPLKu1nUUHlyvVoqSlWr",
+        "productName": "变频电机",
+        "meta_type": "properties",
+        "key": "SettingFreq",
+        "value": "30"
+      },
+      "zIndex": 3
+    }
+  ],
+  "backgroundOptions": {
+    "isLabelVisibility": true,
+    "hasAnimate": false,
+    "lineCross": false,
+    "backGroundColor": "#FFFFFF",
+    "labelColor": "#333",
+    "nodeBackGroundColor": "#FFFFFF",
+    "regionBorderColor": "#red",
+    "regionBackGroundColor": "#efdfef",
+    "lineColor": "#666",
+    "lineWidth": 2,
+    "routerType": "manhattan",
+    "isDashLine": false,
+    "showPort": false,
+    "enableArrow": true
+  }
+}

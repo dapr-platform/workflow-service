@@ -1,0 +1,290 @@
+{
+  "cells": [
+    {
+      "shape": "edge",
+      "attrs": {
+        "line": {
+          "stroke": "#A555EC",
+          "targetMarker": {
+            "tagName": "path",
+            "d": "M 15 -5 0 0 15 5 Z",
+            "strokeWidth": 1,
+            "fill": "#A555EC",
+            "stroke": "#237804"
+          }
+        }
+      },
+      "id": "004d39bc-3626-4557-a47a-0e699e0c88a0",
+      "zIndex": -1,
+      "source": {
+        "cell": "a85fb9e7-0617-4bc4-a768-1843b70e92e7",
+        "port": "OtherRuleEnable@output"
+      },
+      "target": {
+        "cell": "5ac5d620-2e1f-465e-9637-4cb7f667d366",
+        "port": "FlowLoop@input"
+      }
+    },
+    {
+      "shape": "edge",
+      "attrs": {
+        "line": {
+          "stroke": "#A555EC",
+          "targetMarker": {
+            "tagName": "path",
+            "d": "M 15 -5 0 0 15 5 Z",
+            "strokeWidth": 1,
+            "fill": "#A555EC",
+            "stroke": "#237804"
+          }
+        }
+      },
+      "id": "dddd49a9-3143-49c8-8576-8530b094d773",
+      "zIndex": -1,
+      "source": {
+        "cell": "5ac5d620-2e1f-465e-9637-4cb7f667d366",
+        "port": "FlowLoop@105"
+      },
+      "target": {
+        "cell": "63b4451a-f400-4401-b749-a27e82196e9a",
+        "port": "DeviceStateQuery@input"
+      }
+    },
+    {
+      "shape": "edge",
+      "attrs": {
+        "line": {
+          "stroke": "#A555EC",
+          "targetMarker": {
+            "tagName": "path",
+            "d": "M 15 -5 0 0 15 5 Z",
+            "strokeWidth": 1,
+            "fill": "#A555EC",
+            "stroke": "#237804"
+          }
+        }
+      },
+      "id": "e1c0b2cb-db12-4676-896d-c09d9305d40a",
+      "zIndex": -1,
+      "source": {
+        "cell": "63b4451a-f400-4401-b749-a27e82196e9a",
+        "port": "DeviceStateQuery@true"
+      },
+      "target": {
+        "cell": "b38632a9-a360-4506-ac13-9e54aee22535",
+        "port": "FlowFixedCountTrigger@count"
+      }
+    },
+    {
+      "shape": "edge",
+      "attrs": {
+        "line": {
+          "stroke": "#A555EC",
+          "targetMarker": {
+            "tagName": "path",
+            "d": "M 15 -5 0 0 15 5 Z",
+            "strokeWidth": 1,
+            "fill": "#A555EC",
+            "stroke": "#237804"
+          }
+        }
+      },
+      "id": "93c7bf8c-14d8-4ddc-9550-8615b92c3d3e",
+      "zIndex": -1,
+      "source": {
+        "cell": "63b4451a-f400-4401-b749-a27e82196e9a",
+        "port": "DeviceStateQuery@false"
+      },
+      "target": {
+        "cell": "b38632a9-a360-4506-ac13-9e54aee22535",
+        "port": "FlowFixedCountTrigger@zero"
+      }
+    },
+    {
+      "shape": "edge",
+      "attrs": {
+        "line": {
+          "stroke": "#A555EC",
+          "targetMarker": {
+            "tagName": "path",
+            "d": "M 15 -5 0 0 15 5 Z",
+            "strokeWidth": 1,
+            "fill": "#A555EC",
+            "stroke": "#237804"
+          }
+        }
+      },
+      "id": "c1ecc8e7-8f02-4b92-83e8-3b2b3d071b02",
+      "zIndex": -1,
+      "source": {
+        "cell": "b38632a9-a360-4506-ac13-9e54aee22535",
+        "port": "FlowFixedCountTrigger@output"
+      },
+      "target": {
+        "cell": "478b6943-db1e-4549-a963-4d993dedd985",
+        "port": "EventAlarm@input"
+      }
+    },
+    {
+      "shape": "edge",
+      "attrs": {
+        "line": {
+          "stroke": "#A555EC",
+          "targetMarker": {
+            "tagName": "path",
+            "d": "M 15 -5 0 0 15 5 Z",
+            "strokeWidth": 1,
+            "fill": "#A555EC",
+            "stroke": "#237804"
+          }
+        }
+      },
+      "id": "baa8104f-fec4-43fc-aaea-0ae5c43aeb88",
+      "zIndex": -1,
+      "source": {
+        "cell": "63b4451a-f400-4401-b749-a27e82196e9a",
+        "port": "DeviceStateQuery@false"
+      },
+      "target": {
+        "cell": "d28354cf-9516-4ccd-a979-cd1283e704de",
+        "port": "EventAlarmClear@input"
+      }
+    },
+    {
+      "position": {
+        "x": 110,
+        "y": 510
+      },
+      "size": {
+        "width": 560,
+        "height": 180
+      },
+      "shape": "DeviceStateQuery",
+      "id": "63b4451a-f400-4401-b749-a27e82196e9a",
+      "label": "查询当前状态",
+      "data": {
+        "type": "DeviceStateQuery",
+        "name": "查询当前状态",
+        "devices": [
+          {
+            "id": "1903dd68d9b90b4afaf915e830969e85",
+            "name": "水浸2"
+          }
+        ],
+        "dataType": "device",
+        "product": "422sSMPtnq0iQH8eZckWD",
+        "productName": "水浸传感器",
+        "meta_type": "properties",
+        "key": "WaterLeachState",
+        "value": "1"
+      },
+      "zIndex": 1
+    },
+    {
+      "position": {
+        "x": 260,
+        "y": 300
+      },
+      "size": {
+        "width": 380,
+        "height": 135
+      },
+      "shape": "FlowLoop",
+      "id": "5ac5d620-2e1f-465e-9637-4cb7f667d366",
+      "label": "循环",
+      "data": {
+        "type": "FlowLoop",
+        "name": "循环"
+      },
+      "zIndex": 2
+    },
+    {
+      "position": {
+        "x": 40,
+        "y": 107.5
+      },
+      "size": {
+        "width": 150,
+        "height": 80
+      },
+      "shape": "OtherRuleEnable",
+      "id": "a85fb9e7-0617-4bc4-a768-1843b70e92e7",
+      "label": "本规则启用时",
+      "data": {
+        "type": "OtherRuleEnable",
+        "name": "本规则启用时"
+      },
+      "zIndex": 3
+    },
+    {
+      "position": {
+        "x": 800,
+        "y": 555
+      },
+      "size": {
+        "width": 300,
+        "height": 135
+      },
+      "shape": "FlowFixedCountTrigger",
+      "id": "b38632a9-a360-4506-ac13-9e54aee22535",
+      "label": "达到指定次数时",
+      "data": {
+        "type": "FlowFixedCountTrigger",
+        "name": "达到指定次数时"
+      },
+      "zIndex": 4
+    },
+    {
+      "position": {
+        "x": 1230,
+        "y": 590
+      },
+      "size": {
+        "width": 80,
+        "height": 80
+      },
+      "shape": "EventAlarm",
+      "id": "478b6943-db1e-4549-a963-4d993dedd985",
+      "label": "告警",
+      "data": {
+        "type": "EventAlarm",
+        "name": "告警"
+      },
+      "zIndex": 5
+    },
+    {
+      "position": {
+        "x": 800,
+        "y": 750
+      },
+      "size": {
+        "width": 80,
+        "height": 80
+      },
+      "shape": "EventAlarmClear",
+      "id": "d28354cf-9516-4ccd-a979-cd1283e704de",
+      "label": "告警恢复",
+      "data": {
+        "type": "EventAlarmClear",
+        "name": "告警恢复"
+      },
+      "zIndex": 6
+    }
+  ],
+  "backgroundOptions": {
+    "isLabelVisibility": true,
+    "hasAnimate": false,
+    "lineCross": false,
+    "backGroundColor": "#FFFFFF",
+    "labelColor": "#333",
+    "nodeBackGroundColor": "#FFFFFF",
+    "regionBorderColor": "#red",
+    "regionBackGroundColor": "#efdfef",
+    "lineColor": "#666",
+    "lineWidth": 2,
+    "routerType": "manhattan",
+    "isDashLine": false,
+    "showPort": false,
+    "enableArrow": true
+  }
+}

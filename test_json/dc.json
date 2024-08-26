@@ -1,0 +1,144 @@
+{
+  "cells": [
+    {
+      "shape": "edge",
+      "attrs": {
+        "line": {
+          "stroke": "#A555EC",
+          "targetMarker": {
+            "tagName": "path",
+            "d": "M 15 -5 0 0 15 5 Z",
+            "strokeWidth": 1,
+            "fill": "#A555EC",
+            "stroke": "#237804"
+          }
+        }
+      },
+      "id": "3d8cbaa7-b82b-4189-b7c0-8f4b0b27db4b",
+      "zIndex": -1,
+      "source": {
+        "cell": "595d347e-c83e-4fa7-afb1-a5536cf8d127",
+        "port": "OtherRuleEnable@output"
+      },
+      "target": {
+        "cell": "b089f4dc-90b2-4051-b034-060f781d9a77",
+        "port": "FlowLoop@input"
+      }
+    },
+    {
+      "shape": "edge",
+      "attrs": {
+        "line": {
+          "stroke": "#A555EC",
+          "targetMarker": {
+            "tagName": "path",
+            "d": "M 15 -5 0 0 15 5 Z",
+            "strokeWidth": 1,
+            "fill": "#A555EC",
+            "stroke": "#237804"
+          }
+        }
+      },
+      "id": "a3d82621-9476-4ef1-baad-6eaa2bd6b9fe",
+      "zIndex": -1,
+      "source": {
+        "cell": "b089f4dc-90b2-4051-b034-060f781d9a77",
+        "port": "FlowLoop@output2"
+      },
+      "target": {
+        "cell": "f8f7c180-cc41-434c-8595-c41f281f719c",
+        "port": "DeviceDataCollection@input"
+      }
+    },
+    {
+      "position": {
+        "x": 920,
+        "y": 210
+      },
+      "size": {
+        "width": 450,
+        "height": 180
+      },
+      "shape": "DeviceDataCollection",
+      "id": "f8f7c180-cc41-434c-8595-c41f281f719c",
+      "label": "设备采集",
+      "data": {
+        "type": "DeviceDataCollection",
+        "name": "设备采集",
+        "devices": [
+          {
+            "id": "1903dd68d9b90b4afaf915e830969e85",
+            "name": "水浸2"
+          },
+          {
+            "id": "73f57a6f8668270f088ccb616d83f85b",
+            "name": "水浸5"
+          },
+          {
+            "id": "23c4f6f5269051c957e4fe02030e610b",
+            "name": "水浸4"
+          },
+          {
+            "id": "2aa3428edbc27005a8fdf1a95a7737b0",
+            "name": "水浸1"
+          }
+        ],
+        "product": "422sSMPtnq0iQH8eZckWD"
+      },
+      "zIndex": 1
+    },
+    {
+      "position": {
+        "x": 168,
+        "y": 300
+      },
+      "size": {
+        "width": 150,
+        "height": 80
+      },
+      "shape": "OtherRuleEnable",
+      "id": "595d347e-c83e-4fa7-afb1-a5536cf8d127",
+      "label": "本规则启用时",
+      "data": {
+        "type": "OtherRuleEnable",
+        "name": "本规则启用时"
+      },
+      "zIndex": 2
+    },
+    {
+      "position": {
+        "x": 370,
+        "y": 232.5
+      },
+      "size": {
+        "width": 380,
+        "height": 135
+      },
+      "shape": "FlowLoop",
+      "id": "b089f4dc-90b2-4051-b034-060f781d9a77",
+      "label": "循环",
+      "data": {
+        "type": "FlowLoop",
+        "name": "循环",
+        "delay": 60
+      },
+      "zIndex": 3
+    }
+  ],
+  "backgroundOptions": {
+    "isLabelVisibility": true,
+    "hasAnimate": false,
+    "lineCross": false,
+    "backGroundColor": "#FFFFFF",
+    "labelColor": "#333",
+    "nodeBackGroundColor": "#FFFFFF",
+    "regionBorderColor": "#red",
+    "regionBackGroundColor": "#efdfef",
+    "lineColor": "#666",
+    "lineWidth": 2,
+    "routerType": "manhattan",
+    "isDashLine": false,
+    "showPort": false,
+    "enableArrow": true
+  }
+}

@@ -1,0 +1,391 @@
+basePath: /swagger/workflow-service
+definitions:
+  common.Page:
+    properties:
+      items: {}
+      page:
+        type: integer
+      page_size:
+        type: integer
+      total:
+        type: integer
+    type: object
+  common.Response:
+    properties:
+      data: {}
+      msg:
+        type: string
+      status:
+        type: integer
+    type: object
+  model.Workflow:
+    properties:
+      content:
+        description: 内容
+        type: string
+      created_by:
+        description: 创建人id
+        type: string
+      created_time:
+        description: 创建时间
+        type: string
+      description:
+        description: 描述
+        type: string
+      id:
+        description: 唯一标识
+        type: string
+      name:
+        description: 名称
+        type: string
+      running_id:
+        description: 运行id
+        type: string
+      status:
+        description: 状态 0:未发布1:已发布,2:已生效
+        type: integer
+      type:
+        description: 类型
+        type: string
+      updated_by:
+        description: 修改人id
+        type: string
+      updated_time:
+        description: 修改时间
+        type: string
+      workflow_id:
+        description: temporal中id
+        type: string
+    type: object
+info:
+  contact: {}
+  description: workflow-service API
+  title: workflow-service API
+  version: "1.0"
+paths:
+  /workflow:
+    get:
+      description: query objects
+      parameters:
+      - description: _select
+        in: query
+        name: _select
+        type: string
+      - description: order
+        in: query
+        name: _order
+        type: string
+      - description: id
+        in: query
+        name: id
+        type: string
+      - description: created_by
+        in: query
+        name: created_by
+        type: string
+      - description: created_time
+        in: query
+        name: created_time
+        type: string
+      - description: updated_by
+        in: query
+        name: updated_by
+        type: string
+      - description: updated_time
+        in: query
+        name: updated_time
+        type: string
+      - description: name
+        in: query
+        name: name
+        type: string
+      - description: status
+        in: query
+        name: status
+        type: string
+      - description: content
+        in: query
+        name: content
+        type: string
+      - description: description
+        in: query
+        name: description
+        type: string
+      - description: type
+        in: query
+        name: type
+        type: string
+      - description: workflow_id
+        in: query
+        name: workflow_id
+        type: string
+      - description: running_id
+        in: query
+        name: running_id
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: objects array
+          schema:
+            allOf:
+            - $ref: '#/definitions/common.Response'
+            - properties:
+                data:
+                  items:
+                    $ref: '#/definitions/model.Workflow'
+                  type: array
+              type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      summary: query objects
+      tags:
+      - Workflow
+    post:
+      consumes:
+      - application/json
+      description: save
+      parameters:
+      - description: object
+        in: body
+        name: item
+        required: true
+        schema:
+          $ref: '#/definitions/model.Workflow'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: object
+          schema:
+            allOf:
+            - $ref: '#/definitions/common.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/model.Workflow'
+              type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      summary: save
+      tags:
+      - Workflow
+  /workflow/{id}:
+    delete:
+      description: delete
+      parameters:
+      - description: 实例id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: object
+          schema:
+            allOf:
+            - $ref: '#/definitions/common.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/model.Workflow'
+              type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      summary: delete
+      tags:
+      - Workflow
+  /workflow/batch-delete:
+    post:
+      consumes:
+      - application/json
+      description: batch delete
+      parameters:
+      - description: id array
+        in: body
+        name: ids
+        required: true
+        schema:
+          items:
+            type: string
+          type: array
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      summary: batch delete
+      tags:
+      - Workflow
+  /workflow/batch-upsert:
+    post:
+      consumes:
+      - application/json
+      description: batch update
+      parameters:
+      - description: objects array
+        in: body
+        name: entities
+        required: true
+        schema:
+          items:
+            additionalProperties: true
+            type: object
+          type: array
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      summary: batch update
+      tags:
+      - Workflow
+  /workflow/groupby:
+    get:
+      description: GroupBy, for example,  _select=level, then return  {level_val1:sum1,level_val2:sum2},
+        _where can input status=0
+      parameters:
+      - description: _select
+        in: query
+        name: _select
+        required: true
+        type: string
+      - description: _where
+        in: query
+        name: _where
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: objects array
+          schema:
+            allOf:
+            - $ref: '#/definitions/common.Response'
+            - properties:
+                data:
+                  items:
+                    additionalProperties: true
+                    type: object
+                  type: array
+              type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      summary: GroupBy
+      tags:
+      - Workflow
+  /workflow/page:
+    get:
+      description: page query, _page(from 1 begin), _page_size, _order, and others
+        fields, status=1, name=$like.%CAM%
+      parameters:
+      - description: current page
+        in: query
+        name: _page
+        required: true
+        type: integer
+      - description: page size
+        in: query
+        name: _page_size
+        required: true
+        type: integer
+      - description: order
+        in: query
+        name: _order
+        type: string
+      - description: id
+        in: query
+        name: id
+        type: string
+      - description: created_by
+        in: query
+        name: created_by
+        type: string
+      - description: created_time
+        in: query
+        name: created_time
+        type: string
+      - description: updated_by
+        in: query
+        name: updated_by
+        type: string
+      - description: updated_time
+        in: query
+        name: updated_time
+        type: string
+      - description: name
+        in: query
+        name: name
+        type: string
+      - description: status
+        in: query
+        name: status
+        type: string
+      - description: content
+        in: query
+        name: content
+        type: string
+      - description: description
+        in: query
+        name: description
+        type: string
+      - description: type
+        in: query
+        name: type
+        type: string
+      - description: workflow_id
+        in: query
+        name: workflow_id
+        type: string
+      - description: running_id
+        in: query
+        name: running_id
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: objects array
+          schema:
+            allOf:
+            - $ref: '#/definitions/common.Response'
+            - properties:
+                data:
+                  allOf:
+                  - $ref: '#/definitions/common.Page'
+                  - properties:
+                      items:
+                        items:
+                          $ref: '#/definitions/model.Workflow'
+                        type: array
+                    type: object
+              type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      summary: page query
+      tags:
+      - Workflow
+swagger: "2.0"

@@ -1,0 +1,99 @@
+{
+  "nodes": [
+    {
+      "id": "742356ea-762b-4899-b96a-bd567e3c4361",
+      "type": "StartEvent",
+      "x": 278,
+      "y": 170,
+      "properties": {
+        "type": "system_event",
+        "name": "开始事件",
+        "pubsub": "pubsub",
+        "topic": "material",
+        "filter_expr": "status==1"
+      },
+      "text": {
+        "x": 278,
+        "y": 205,
+        "value": "开始事件"
+      }
+    },
+    {
+      "id": "4835334d-b6d6-4717-856c-efaccfd97517",
+      "type": "UserTask",
+      "x": 470,
+      "y": 170,
+      "properties": {
+        "to_type":"user",
+        "to_id":"1",
+        "notify_type": "message",
+        "form_ref_id": "",
+        "form_def": "",
+        "extra_form_def":"",
+        "expired_minutes": "60"
+      }
+    },
+    {
+      "id": "05701f4c-1c0f-4c70-9c1f-7f08561c75f9",
+      "type": "EndEvent",
+      "x": 640,
+      "y": 170,
+      "properties": {
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "fa986540-e33a-4a13-9d5d-6baaa33b7321",
+      "type": "polyline",
+      "sourceNodeId": "742356ea-762b-4899-b96a-bd567e3c4361",
+      "targetNodeId": "4835334d-b6d6-4717-856c-efaccfd97517",
+      "startPoint": {
+        "x": 298,
+        "y": 170
+      },
+      "endPoint": {
+        "x": 435,
+        "y": 170
+      },
+      "properties": {
+      },
+      "pointsList": [
+        {
+          "x": 298,
+          "y": 170
+        },
+        {
+          "x": 435,
+          "y": 170
+        }
+      ]
+    },
+    {
+      "id": "bb22bc47-dca0-40cd-a296-15bf3df7ddc8",
+      "type": "polyline",
+      "sourceNodeId": "4835334d-b6d6-4717-856c-efaccfd97517",
+      "targetNodeId": "05701f4c-1c0f-4c70-9c1f-7f08561c75f9",
+      "startPoint": {
+        "x": 505,
+        "y": 170
+      },
+      "endPoint": {
+        "x": 620,
+        "y": 170
+      },
+      "properties": {
+      },
+      "pointsList": [
+        {
+          "x": 505,
+          "y": 170
+        },
+        {
+          "x": 620,
+          "y": 170
+        }
+      ]
+    }
+  ]
+}

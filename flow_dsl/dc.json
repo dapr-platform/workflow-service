@@ -1,0 +1,246 @@
+{
+  "cells": [
+    {
+      "shape": "edge",
+      "attrs": {
+        "line": {
+          "stroke": "#A555EC",
+          "targetMarker": {
+            "tagName": "path",
+            "d": "M 15 -5 0 0 15 5 Z",
+            "strokeWidth": 1,
+            "fill": "#A555EC",
+            "stroke": "#237804"
+          }
+        }
+      },
+      "id": "096c5e4c-3e8b-47b0-afc4-4d0cca473072",
+      "zIndex": -1,
+      "source": {
+        "cell": "6097833d-4dbb-4c1b-beed-29138ae45ea6",
+        "port": "DeviceEventOrStateChange@output"
+      },
+      "target": {
+        "cell": "3a4a9459-a8b9-442a-a56b-f73cf2664384",
+        "port": "DeviceAction@input"
+      }
+    },
+    {
+      "shape": "edge",
+      "attrs": {
+        "line": {
+          "stroke": "#A555EC",
+          "targetMarker": {
+            "tagName": "path",
+            "d": "M 15 -5 0 0 15 5 Z",
+            "strokeWidth": 1,
+            "fill": "#A555EC",
+            "stroke": "#237804"
+          }
+        }
+      },
+      "id": "22e4dfc0-24ca-44a0-870b-2cb6d69e99b4",
+      "zIndex": -1,
+      "source": {
+        "cell": "110a8553-fdcf-4714-84ce-afdb62782a90",
+        "port": "DeviceEventOrStateChange@output"
+      },
+      "target": {
+        "cell": "04303488-0141-48db-9930-28bcb9995fda",
+        "port": "DeviceAction@input"
+      }
+    },
+    {
+      "shape": "edge",
+      "attrs": {
+        "line": {
+          "stroke": "#A555EC",
+          "targetMarker": {
+            "tagName": "path",
+            "d": "M 15 -5 0 0 15 5 Z",
+            "strokeWidth": 1,
+            "fill": "#A555EC",
+            "stroke": "#237804"
+          }
+        }
+      },
+      "id": "8631e037-f248-4795-b4f3-4299eafe59d5",
+      "zIndex": -1,
+      "source": {
+        "cell": "6e8353f1-acc3-4d20-91a7-c531d6148e00",
+        "port": "DeviceEventOrStateChange@output"
+      },
+      "target": {
+        "cell": "761bda31-bd1a-4bdb-a3e9-813bffb80fcb",
+        "port": "DeviceAction@input"
+      }
+    },
+    {
+      "position": {
+        "x": 140,
+        "y": 230
+      },
+      "size": {
+        "width": 400,
+        "height": 180
+      },
+      "shape": "DeviceEventOrStateChange",
+      "id": "6097833d-4dbb-4c1b-beed-29138ae45ea6",
+      "label": "事件发生或状态更新",
+      "data": {
+        "type": "DeviceEventOrStateChange",
+        "name": "事件发生或状态更新",
+        "dataType": "product",
+        "product": "zN_hNIdCZ7Zg1O-4KTN8u",
+        "productName": "风道压力传感器",
+        "meta_type": "properties",
+        "key": "Pressure",
+        "op": "lt",
+        "value": "50",
+        "value2": "50"
+      },
+      "zIndex": 1
+    },
+    {
+      "position": {
+        "x": 720,
+        "y": 230
+      },
+      "size": {
+        "width": 450,
+        "height": 180
+      },
+      "shape": "DeviceAction",
+      "id": "3a4a9459-a8b9-442a-a56b-f73cf2664384",
+      "label": "执行操作",
+      "data": {
+        "type": "DeviceAction",
+        "name": "执行操作",
+        "dataType": "product",
+        "product": "pPAuq5FG2CxL47zrmsVQg",
+        "productName": "新风机组",
+        "matchTag": "网关",
+        "meta_type": "properties",
+        "service": "FrequencyState1",
+        "output": "50"
+      },
+      "zIndex": 2
+    },
+    {
+      "position": {
+        "x": 170,
+        "y": 472
+      },
+      "size": {
+        "width": 400,
+        "height": 180
+      },
+      "shape": "DeviceEventOrStateChange",
+      "id": "110a8553-fdcf-4714-84ce-afdb62782a90",
+      "label": "事件发生或状态更新",
+      "data": {
+        "type": "DeviceEventOrStateChange",
+        "name": "事件发生或状态更新",
+        "dataType": "product",
+        "product": "zN_hNIdCZ7Zg1O-4KTN8u",
+        "productName": "风道压力传感器",
+        "meta_type": "properties",
+        "key": "Pressure",
+        "op": "range3",
+        "value": "50",
+        "value2": "100"
+      },
+      "zIndex": 3
+    },
+    {
+      "position": {
+        "x": 740,
+        "y": 472
+      },
+      "size": {
+        "width": 450,
+        "height": 180
+      },
+      "shape": "DeviceAction",
+      "id": "04303488-0141-48db-9930-28bcb9995fda",
+      "label": "执行操作",
+      "data": {
+        "type": "DeviceAction",
+        "name": "执行操作",
+        "dataType": "product",
+        "product": "pPAuq5FG2CxL47zrmsVQg",
+        "productName": "新风机组",
+        "matchTag": "网关",
+        "meta_type": "properties",
+        "service": "FrequencyState1",
+        "output": "30"
+      },
+      "zIndex": 4
+    },
+    {
+      "position": {
+        "x": 170,
+        "y": 691
+      },
+      "size": {
+        "width": 400,
+        "height": 180
+      },
+      "shape": "DeviceEventOrStateChange",
+      "id": "6e8353f1-acc3-4d20-91a7-c531d6148e00",
+      "label": "事件发生或状态更新",
+      "data": {
+        "type": "DeviceEventOrStateChange",
+        "name": "事件发生或状态更新",
+        "dataType": "product",
+        "product": "zN_hNIdCZ7Zg1O-4KTN8u",
+        "productName": "风道压力传感器",
+        "meta_type": "properties",
+        "key": "Pressure",
+        "value": "100"
+      },
+      "zIndex": 5
+    },
+    {
+      "position": {
+        "x": 692,
+        "y": 691
+      },
+      "size": {
+        "width": 450,
+        "height": 180
+      },
+      "shape": "DeviceAction",
+      "id": "761bda31-bd1a-4bdb-a3e9-813bffb80fcb",
+      "label": "执行操作",
+      "data": {
+        "type": "DeviceAction",
+        "name": "执行操作",
+        "dataType": "product",
+        "product": "pPAuq5FG2CxL47zrmsVQg",
+        "productName": "新风机组",
+        "matchTag": "网关",
+        "meta_type": "properties",
+        "service": "FrequencyState1",
+        "output": "10"
+      },
+      "zIndex": 6
+    }
+  ],
+  "backgroundOptions": {
+    "isLabelVisibility": true,
+    "hasAnimate": false,
+    "lineCross": false,
+    "backGroundColor": "#FFFFFF",
+    "labelColor": "#333",
+    "nodeBackGroundColor": "#FFFFFF",
+    "regionBorderColor": "#red",
+    "regionBackGroundColor": "#efdfef",
+    "lineColor": "#666",
+    "lineWidth": 2,
+    "routerType": "manhattan",
+    "isDashLine": false,
+    "showPort": false,
+    "enableArrow": true
+  }
+}
