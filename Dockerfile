@@ -1,4 +1,4 @@
-FROM golang:1.22.5-alpine3.19 as build
+FROM golang:1.23.1-alpine3.19 as build
 RUN  apk add --no-cache git upx \
     && rm -rf /var/cache/apk/* \
     && rm -rf /root/.cache \
